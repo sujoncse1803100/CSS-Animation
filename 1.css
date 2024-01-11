@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+
+.animated-card,
+.animated-card2 {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 500px;
+  width: 350px;
+  background: #222;
+  border: 10px;
+  cursor: pointer;
+  /* border-radius: 8px; */
+}
+
+.animated-card::before {
+  position: absolute;
+  content: "";
+  height: 500px;
+  width: 350px;
+  background: tomato;
+  border-radius: 15px;
+  z-index: -1;
+  transition: 0.3s;
+  animation: animate 2s linear infinite;
+}
+
+.animated-card:hover::before {
+  height: 512px;
+  width: 362px;
+}
+
+@keyframes animate {
+  50% {
+    filter: hue-rotate(350deg);
+  }
+}
+
+.animated-card2 {
+  overflow: hidden;
+}
+
+.animated-card2::before {
+  position: absolute;
+  content: "";
+  height: 180%;
+  width: 50%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.animated-card2:hover::before {
+  animation: animate2 2s linear infinite;
+}
+
+@keyframes animate2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-card2::after {
+  position: absolute;
+  content: "";
+  inset: 5px;
+  background: #222;
+  border-radius: 8px;
+}
+
+h1 {
+  z-index: 10;
+}
